@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { CarFormComponent } from './components/car-form/car-form.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [CarFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
