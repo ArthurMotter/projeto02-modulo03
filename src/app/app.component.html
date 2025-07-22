@@ -9,7 +9,13 @@
 
 <!-- Main content area -->
 <main class="container">
-  <!-- Custom components -->
-  <app-car-form (carAdded)="onCarAdded($event)"></app-car-form>
-  <app-car-list [cars]="cars" (carDeleted)="onCarDeleted($event)"></app-car-list>
+  <app-car-form 
+    [carToEdit]="carToEdit"
+    (carAdded)="onCarSaved($event)">
+  </app-car-form>
+  <app-car-list 
+    [cars]="cars" 
+    (carDeleted)="onCarDeleted($event)"
+    (carEdit)="onCarEdit($event)">
+  </app-car-list>
 </main>

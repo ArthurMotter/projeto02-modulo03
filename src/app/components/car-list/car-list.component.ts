@@ -14,6 +14,13 @@ export class CarListComponent {
 
   // Emmit the car to be deleted by Id
   @Output() carDeleted = new EventEmitter<number>();
+  // Emmit the car to be edited by Id
+  @Output() carEdit = new EventEmitter<number>();
+
+  // Car edition method
+  editCar(index: number) {
+    this.carEdit.emit(index);
+  }
 
   // Car deletion method
   deleteCar(index: number) {

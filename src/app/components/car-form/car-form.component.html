@@ -1,37 +1,43 @@
 <div class="card shadow-sm mb-4">
-  <div class="card-body">
-    <h5 class="card-title">Cadastro de Carros:</h5>
+    <div class="card-body">
+        <h5 class="card-title">Cadastro de Carros:</h5>
 
-    <form (ngSubmit)="saveCar()">
-      <div class="mb-3 row">
-        <label for="carName" class="col-sm-2 col-form-label">Nome:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="carName" name="carName" [(ngModel)]="newCar.name" required>
-        </div>
-      </div>
+        <form (ngSubmit)="saveCar()">
+            <div class="mb-3 row">
+                <label for="carName" class="col-sm-2 col-form-label">Nome:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="carName" name="carName" [(ngModel)]="carModel.name"
+                        required>
+                </div>
+            </div>
 
-      <div class="mb-3 row">
-        <label for="carAssembler" class="col-sm-2 col-form-label">Montadora:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="carAssembler" name="carAssembler" [(ngModel)]="newCar.assembler" required>
-        </div>
-      </div>
-      
-      <div class="mb-3 row">
-        <label for="carPrice" class="col-sm-2 col-form-label">Preço:</label>
-        <div class="col-sm-4">
-          <input type="number" class="form-control" id="carPrice" name="carPrice" [(ngModel)]="newCar.price" required>
-        </div>
+            <div class="mb-3 row">
+                <label for="carAssembler" class="col-sm-2 col-form-label">Montadora:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="carAssembler" name="carAssembler"
+                        [(ngModel)]="carModel.assembler" required>
+                </div>
+            </div>
 
-        <label for="carYear" class="col-sm-1 col-form-label text-end">Ano:</label>
-        <div class="col-sm-5">
-          <input type="number" class="form-control" id="carYear" name="carYear" [(ngModel)]="newCar.year" required>
-        </div>
-      </div>
-      
-      <div class="d-flex justify-content-start">
-        <button type="submit" class="btn btn-primary">Salvar</button>
-      </div>
-    </form>
-  </div>
+            <div class="mb-3 row">
+                <label for="carPrice" class="col-sm-2 col-form-label">Preço:</label>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" id="carPrice" name="carPrice" [(ngModel)]="carModel.price"
+                        required>
+                </div>
+
+                <label for="carYear" class="col-sm-1 col-form-label text-end">Ano:</label>
+                <div class="col-sm-5">
+                    <input type="number" class="form-control" id="carYear" name="carYear" [(ngModel)]="carModel.year"
+                        required>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-start">
+                <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Atualizar' : 'Salvar' }}</button>
+                <button *ngIf="isEditMode" (click)="resetForm()" type="button"
+                    class="btn btn-secondary ms-2">Cancelar</button>
+            </div>
+        </form>
+    </div>
 </div>

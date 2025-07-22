@@ -17,9 +17,24 @@ export class AppComponent {
     { name: 'Palio', assembler: 'Fiat', price: 30000, year: 2020 }
   ];
 
-  // Method to handle the event emitted by the form
-  onCarAdded(car: Car) {
-    this.cars.push(car);
+  carToEdit: Car | null = null;
+  carToEditIndex: number | null = null;
+
+  // Method to handle both create and update
+  onCarSaved(car: Car) {
+    if (this.carToEditIndex !== null) {
+      this.cars[this.carToEditIndex] = car;
+    } else {
+      this.cars.push(car);
+    }
+    this.carToEdit = null;
+    this.carToEditIndex = null;
+  }
+
+  // Method to handle the edition emitted from parents
+  onCarEdit(index: number) {
+    this.carToEditIndex = index;
+    this.carToEdit = { ...this.cars[index] };
   }
 
   // Method to handle the deletion emitted by the table
