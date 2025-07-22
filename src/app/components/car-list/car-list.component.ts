@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Car } from '../../models/car.model';
 import { CommonModule } from '@angular/common';
 
@@ -11,4 +11,12 @@ import { CommonModule } from '@angular/common';
 export class CarListComponent {
   // Receive the objects array from parent (appComponent)
   @Input() cars: Car[] = [];
+
+  // Emmit the car to be deleted by Id
+  @Output() carDeleted = new EventEmitter<number>();
+
+  // Car deletion method
+  deleteCar(index: number) {
+    this.carDeleted.emit(index);
+  }
 }

@@ -18,16 +18,16 @@
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ car.name }}</td>
           <td>{{ car.assembler }}</td>
-          <td>{{ car.price }}</td>
+          <td>{{ car.price | currency:'BRL' }}</td>
           <td>{{ car.year }}</td>
           <td>
             <button class="btn btn-success btn-sm me-2">Alterar</button>
-            <button class="btn btn-danger btn-sm">Remover</button>
+            <button (click)="deleteCar(i)" class="btn btn-danger btn-sm">Remover</button>
           </td>
         </tr>
-        <!-- Message if no cars -->
+
         <tr *ngIf="cars.length === 0">
-            <td colspan="6" class="text-center">Nenhum carro cadastrado.</td>
+          <td colspan="6" class="text-center">Nenhum carro cadastrado.</td>
         </tr>
       </tbody>
     </table>

@@ -11,5 +11,5 @@
 <main class="container">
   <!-- Custom components -->
   <app-car-form (carAdded)="onCarAdded($event)"></app-car-form>
-  <app-car-list [cars]="cars"></app-car-list>
+  <app-car-list [cars]="cars" (carDeleted)="onCarDeleted($event)"></app-car-list>
 </main>

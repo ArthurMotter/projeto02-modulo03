@@ -21,4 +21,9 @@ export class AppComponent {
   onCarAdded(car: Car) {
     this.cars.push(car);
   }
+
+  // Method to handle the deletion emitted by the table
+  onCarDeleted(index: number) {
+    this.cars.splice(index, 1);
+  }
 }
