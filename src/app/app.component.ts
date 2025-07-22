@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CarFormComponent } from './components/car-form/car-form.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { Car } from './models/car.model';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,14 @@ import { CarListComponent } from './components/car-list/car-list.component';
 })
 export class AppComponent {
   title = 'car-systems-app';
+
+  // Master list of cars
+  cars: Car[] = [
+    { name: 'Palio', assembler: 'Fiat', price: 30000, year: 2020 }
+  ];
+
+  // Method to handle the event emitted by the form
+  onCarAdded(car: Car) {
+    this.cars.push(car);
+  }
 }
