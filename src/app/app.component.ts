@@ -39,6 +39,15 @@ export class AppComponent {
 
   // Method to handle the deletion emitted by the table
   onCarDeleted(index: number) {
+    if (this.carToEditIndex !== null) {
+      if (index === this.carToEditIndex) {
+        this.carToEdit = null;
+        this.carToEditIndex = null;
+      } 
+      else if (index < this.carToEditIndex) {
+        this.carToEditIndex--;
+      }
+    }
     this.cars.splice(index, 1);
   }
 }

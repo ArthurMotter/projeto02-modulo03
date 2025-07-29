@@ -22,9 +22,13 @@ export class CarFormComponent {
   
   // Methods
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['carToEdit'] && this.carToEdit) {
-      this.carModel = { ...this.carToEdit }; 
-      this.isEditMode = true;
+    if (changes['carToEdit']) {
+      if (this.carToEdit) {
+        this.carModel = { ...this.carToEdit }; 
+        this.isEditMode = true;
+      } else {
+        this.resetForm();
+      }
     }
   }
 
